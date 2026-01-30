@@ -15,8 +15,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
-
-@Profile("test")
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -43,25 +41,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
-                .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/api/authors/**", "/api/books/**", "/api/categories/**", "/api/user/login", "/api/user/register", "/api/countries/**")
-                        .permitAll()
-                        .requestMatchers("/api/wishlist/**")
-                        .hasRole("USER")
-                        .anyRequest().authenticated())
-
-                .formLogin(form -> form
-                        .defaultSuccessUrl("/swagger-ui/index.html", true)
-                        .permitAll()
-                )
-                .logout(logout -> logout
-                        .logoutUrl("/api/user/logout")
-                        .clearAuthentication(true)
-                        .invalidateHttpSession(true)
-                        .deleteCookies("JSESSIONID")
-                        .logoutSuccessUrl("/api/user/login"))
-                .exceptionHandling(ex -> ex
-                        .accessDeniedPage("/access_denied"));
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
 
         return http.build();
     }
