@@ -1,0 +1,33 @@
+#services:
+#  db:
+#    image: postgres:17.4
+#    restart: always
+#    environment:
+#      POSTGRES_USER: emt
+#      POSTGRES_PASSWORD: emt
+#      POSTGRES_DB: emt_book
+#    volumes:
+#      - pgdata:/var/lib/postgresql/data
+#      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+#      - ./views.sql:/docker-entrypoint-initdb.d/views.sql
+#    ports:
+#      - 5432:5432
+#volumes:
+#  pgdata:
+
+
+services:
+  db:
+    image: postgres:17.4
+    restart: always
+    environment:
+      POSTGRES_USER: emt
+      POSTGRES_PASSWORD: emt
+      POSTGRES_DB: emt_book
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
