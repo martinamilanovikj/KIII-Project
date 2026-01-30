@@ -11,6 +11,7 @@ import com.example.emtlabs.repository.BookRepository;
 import com.example.emtlabs.repository.CountryRepository;
 import com.example.emtlabs.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Profile("dev")
 @Component
 public class DataInitializer {
     private final PasswordEncoder passwordEncoder;
