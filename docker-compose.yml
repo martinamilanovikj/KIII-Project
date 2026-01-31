@@ -19,12 +19,22 @@ services:
     depends_on:
       - db
     environment:
-      SPRING_PROFILES_ACTIVE: dev
+      SPRING_PROFILES_ACTIVE: docker
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/emt_book
       SPRING_DATASOURCE_USERNAME: emt
       SPRING_DATASOURCE_PASSWORD: emt
     ports:
       - "9090:8080"
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: emt-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
     restart: always
 
 volumes:
