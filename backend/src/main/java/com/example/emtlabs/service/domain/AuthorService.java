@@ -3,7 +3,6 @@ package com.example.emtlabs.service.domain;
 
 import com.example.emtlabs.model.domain.Author;
 import com.example.emtlabs.model.projections.AuthorNameProjection;
-import com.example.emtlabs.model.views.AuthorsPerCountryView;
 
 import java.util.List;
 import java.util.Optional;

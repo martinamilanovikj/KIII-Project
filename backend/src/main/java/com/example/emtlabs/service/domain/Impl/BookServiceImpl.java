@@ -8,10 +8,7 @@ import com.example.emtlabs.model.exceptions.InvalidBookIdException;
 import com.example.emtlabs.repository.BookRepository;
 import com.example.emtlabs.service.domain.AuthorService;
 import com.example.emtlabs.service.domain.BookService;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-
-import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDate;
 import java.util.List;

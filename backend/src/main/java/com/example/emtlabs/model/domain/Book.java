@@ -3,8 +3,6 @@ package com.example.emtlabs.model.domain;
 import com.example.emtlabs.model.enumerations.Category;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 
