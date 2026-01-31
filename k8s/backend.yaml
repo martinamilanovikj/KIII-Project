@@ -4,6 +4,7 @@ metadata:
   name: backend-config
   namespace: bookrental
 data:
+  SERVER_PORT: "9090"
   SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bookrental
   SPRING_DATASOURCE_USERNAME: book
   SPRING_JPA_HIBERNATE_DDL_AUTO: update
@@ -27,7 +28,7 @@ spec:
         - name: backend
           image: martina107/book-rental-backend:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 9090
           envFrom:
             - configMapRef:
                 name: backend-config
@@ -43,5 +44,5 @@ spec:
   selector:
     app: backend
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 9090
+      targetPort: 9090
